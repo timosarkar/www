@@ -17,22 +17,25 @@ my super duper cool website
 How to Read this Blog
 ---------------------
 This blog is made up of a collection of text files, hence no clickable links.
-It's also best read at 110% zoom. All links are in the format [Link Title](url).
+It's also best read at 150% zoom. All links are in the format [Link Title](url).
 If the url is relative, paste it after the root domain to go the right page. If
 it is absolute, replace the entire URL. You can use `ctrl + l` or `cmd + l` to
 edit the address bar.
 
 All posts are summarised here with tags. Search for the tags with the browser
-find function, eg: #best to find the best posts. If you want to know why I'm
-doing this read [only text](/only.txt).
+find function, eg: #best to find the best posts. I made this blog purely with .txt 
+file directly served from vim. Read [plaintext](/plaintext.txt) to find out more.
 
 
 All Posts
 ---------
+* 30-10-2024 [Lucid Dreaming](/lucid.txt)
+  #neuro, #luciddreaming, #dreaming
+  My opinions about re-watching the movie "Inception" and findings on its closely related topic, Lucid Dreaming.
 * 16-10-2024 [Podman](/podman.txt)
   #podman, #containerization, #linux
   In this blog we will dive into podman and get to know some common commands
-* 15-10-2024 [Only Text](/only.txt)
+* 15-10-2024 [Plain Text](/plaintext.txt)
   #best, #blog, #plain_text
   I go deep why this blog is written in plain text, what I'm planning to do with
   it, and a spec for how this blog is structured.
