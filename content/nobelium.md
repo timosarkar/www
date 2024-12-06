@@ -39,7 +39,7 @@ This created a folder called iso-output alongside its extractions which I could 
 
 The .ISO file is meant to be directly executed/mounted by the victim. When mounting the .ISO file, it will automatically execute the **information.txt.lnk** file which will load **mstu.dll**.
 
-Alright, we know now  what the .ISO file does as well as what the shortcut file and the decoy file do. Lets move on to the main binary which is **mstu.dll**. I am a big fan of using [IDA-Pro 7.7]() by Hex-Rays in order to decompile and analyse binaries. It is very easy to use and super dope when generating C/C++ pseudocode. As for this case, I have used the 32bit version of it since, I was analysing a **PE32 executable (DLL) (GUI) for Intel 80386**.
+Alright, we know now  what the .ISO file does as well as what the shortcut file and the decoy file do. Lets move on to the main binary which is **mstu.dll**. I am a big fan of using [IDA-Pro 7.7](https://hex-rays.com/ida-pro) by Hex-Rays in order to decompile and analyse binaries. It is very easy to use and super dope when generating C/C++ pseudocode. As for this case, I have used the 32bit version of it since, I was analysing a **PE32 executable (DLL) (GUI) for Intel 80386**.
 
 Within IDA-Pro I quickly identified the only external modules that are imported into the program beeing:
 
