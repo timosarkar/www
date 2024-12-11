@@ -8,6 +8,7 @@ The following is my cybersecurity watch- and todolist for the following year (20
 ## To Analyse
 
 **APT malware**:
+
 - DuQu
 - DuQu 2.0
 - DuQu Compiler Addon
@@ -18,28 +19,34 @@ The following is my cybersecurity watch- and todolist for the following year (20
 - MAGNETGOBLIN NerbianRAT & miniNerbian
 
 **Post-Exploitation Frameworks/C2**:
+
 - Havoc C2
 - CobaltStrike LLVM Mutator
 - Earthworm
 
 **Rootkits**:
+
 - Symbiote
 - 0rbit
 - Necurs
 - GELSEMIUM/WolfsBane
 
 **Stealers**:
+
 - Amadey
 
 **Air-Gapped Malware**:
+
 - GoldenJackal
 
 **Ransomware**:
+
 - Cl0p
 - Helldown
 - BrainCipher
 
 **Wiper**:
+
 - AcidRain
 - AcidPour
 - HermeticWiper
@@ -47,6 +54,7 @@ The following is my cybersecurity watch- and todolist for the following year (20
 - CaddyWiper
 
 **Botnets**:
+
 - HinataBot
 - Kaiji
 - Glupteba
