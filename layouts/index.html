@@ -1,6 +1,7 @@
 {{ define "main" }}
-<h1>Timo Sarkar</h1>
+<h1 style="font-size: 32px; font-weight: 700; margin-bottom: 0;">Timo Sarkar</h1>
+<a href="/a">about</a> ❂ <a href="/p">permacomputing</a> ❂ <a href="/">future ⍒</a><br><br>
 {{ range .Paginator.Pages }}
-<p><a href="{{ .Permalink }}">{{ .Title }}</a><br></p>
+<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
 {{ end }}
 {{ end }}

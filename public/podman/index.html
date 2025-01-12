@@ -1,0 +1,31 @@
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Podman</title><style>body{font: 16px arial; padding: 0 10px;margin: 50px auto;max-width: 650px;}div{margin-top:70px;max-width:42em;margin:15 auto;}img{max-width:100%;}li,code,pre{max-width:100%; word-wrap: break-word;}a{color:rgb(0, 0, 238)}</style></head><body>
+back to <a href="/">home</a>
+<h1>Podman</h1>
+<p>Podman is really cool. I have just recently stumbled upon it, since I
+was looking for a good docker alternative. It is really fast and lightweight.
+Here are my personal notes on Podman.</p>
+<h2 id="installing-podman">Installing Podman</h2>
+<p>To install Podman you need to be on an Unix like Debian or Ubuntu. I am on
+Ubuntu so this will be the install command for me.</p>
+<pre tabindex="0"><code>sudo apt-get install podman -y
+</code></pre><p>After that you can verify the installation with the following command.</p>
+<pre tabindex="0"><code>podman --version
+</code></pre><h2 id="creating-an-image">Creating an Image</h2>
+<p>To create an Image, we will need to create a Dockerfile. Here is mine.</p>
+<pre tabindex="0"><code>FROM debian:latest
+
+RUN apt update &amp;&amp; \
+    apt install -y git curl &amp;&amp; \
+    apt clean &amp;&amp; \
+    rm -rf /var/lib/apt/lists/*
+
+CMD [&#34;bash&#34;]
+</code></pre><p>This will pull the latest version of Debian, install Git and Curl and then
+launch a bash shell. To build the image from this Dockerfile we can run this command.</p>
+<pre tabindex="0"><code>podman build --tag &lt;name-of-image-here&gt; .
+</code></pre><p>After that you can list all available images with <code>podman images</code>.</p>
+<h2 id="running-a-container">Running a Container</h2>
+<p>To create and run a container based on the newly created image, you can
+run this command.</p>
+<pre tabindex="0"><code>podman run --interactive -t &lt;name-of-image-here&gt; 
+</code></pre>
