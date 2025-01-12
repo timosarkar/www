@@ -1,7 +1,25 @@
 {{ define "main" }}
-<h1 style="font-size: 32px; font-weight: 700; margin-bottom: 0;">Timo Sarkar</h1>
-<a href="/a">about</a> ❂ <a href="/p">permacomputing</a> ❂ <a href="/">future ⍒</a><br><br>
+
+<p>Hi , I'm Timo! I happen to like computers, <a href="/e">e/acc ⍒</a>,<br>
+  linux, cyber, fintech, and karate</p>
+
+  <p>Please read my <a href="/a">about</a> page</p>
+<p><site@t0.vc/p>
+  <p>CV</p>
+
+
+
+
+
+<span>Technical Founder - Azurexpiry, '24-<br>
+IT Systemadministrator - Perlen Papier, '24-<br>
+IT System Engineer (Apprentice) - Perlen Papier, '20-'24<br>
+Information Technologist (Federal Diploma)</span>
+
+<p>Blog</p>
 {{ range .Paginator.Pages }}
+{{ if ne .Layout "page" }}
 <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+{{ end }}
 {{ end }}
 {{ end }}
