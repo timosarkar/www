@@ -47,4 +47,4 @@ And this value is much larger than the previous record holder. **I therefore cla
 
 ## Size comparison
 
-For the final decompressed expansion size of godzilla.zip: If every byte was a **grain of sand**. The total volume and size of the zipbomb would be **times larger than the total volume of our milky-ways galaxy**. Let that sink in!
+For the final decompressed expansion size of godzilla.zip: If every byte was a **grain of sand**. The total volume and size of the zipbomb would be **100 times larger than the total volume of our milky-ways galaxy**. Let that sink in!
