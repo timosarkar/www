@@ -37,14 +37,14 @@ Damn. This must be the largest ever created. Right? I do not think so. **I might
 
 ## Creating my own
 
-I quickly wrote a **golang** program. The program is called godzilla.zip and was recently open-sourced on [GitHub](https://github.com/timosarkar/godzilla.zip). The program creates a **1 megabyte needle file** which is intended as the base file. The file is filled with repetitive "0"s. The needle file is then compressed into an archive called **level1.zip**. The compression-ratio for the first levels are always at roughly 99.99%. So therefore, the archive would shrink from 1 megabyte to 1 kilobyte. The program then enters an iterative loop for which in every iteration, it will create a new archive with 10 copies of the previous archive. So **level2.zip** would contain 10 level1.zip files. You can see, that the real size will unproportionally stay relative to the decompressed expansion size which grows exponentially to astronomic values. 
+I quickly wrote a **golang** program. The program is called tsarbomba and was recently open-sourced on [GitHub](https://github.com/timosarkar/tsarbomba). The program creates a **1 megabyte needle file** which is intended as the base file. The file is filled with repetitive "0"s. The needle file is then compressed into an archive called **level1.zip**. The compression-ratio for the first levels are always at roughly 99.99%. So therefore, the archive would shrink from 1 megabyte to 1 kilobyte. The program then enters an iterative loop for which in every iteration, it will create a new archive with 10 copies of the previous archive. So **level2.zip** would contain 10 level1.zip files. You can see, that the real size will unproportionally stay relative to the decompressed expansion size which grows exponentially to astronomic values. 
 
 I have also added thread-safe **goroutines** and **channels** to speed the programs runtime up by some orders of magnitude. Then I did a test run with 70 layers where each layer contains 10 archives of the previous level. After roughly 90 seconds, I was left with a **21 gigabyte** large zipbomb (real compressed filesystem size). The decompressed expansion size was around **10,000,000,000,000,000,000,000,000 saganbytes**. 
 
 And this value is much larger than the previous record holder. **I therefore claim my bomb to be the worlds largest zipbomb ever made. Muahahaha.**
 
->Note: I have not uploaded the final zipbomb to github, as it has a hard-limit of 2 gigabytes. Even for git LFS. I am currently **sharding** the godzilla.zip archive into 2 GB shards so I can upload it for verification.
+>Note: I have not uploaded the final zipbomb to github, as it has a hard-limit of 2 gigabytes. Even for git LFS. I am currently **sharding** the tsarbomba archive into 2 GB shards so I can upload it for verification.
 
 ## Size comparison
 
-For the final decompressed expansion size of godzilla.zip: If every byte was a **grain of sand**. The total volume and size of the zipbomb would be **100 times larger than the total volume of our milky-ways galaxy**. Let that sink in!
+For the final decompressed expansion size of tsarbomba: If every byte was a **grain of sand**. The total volume and size of the zipbomb would be **100 times larger than the total volume of our milky-ways galaxy**. Let that sink in!
