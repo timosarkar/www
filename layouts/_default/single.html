@@ -1,5 +1,18 @@
-{{ define "main" }}
-back to <a href="/">home</a>
-<h1>{{ .Title }}</h1>
-{{ .Content }}
-{{ end }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+    <hr>
+
+{{ .Date.Format "2006 Jan 3 " }}<a href="/">See all posts</a>
+    <div>{{ .Content }}</div>
+    <a href="/">Back to homepage</a>
+</body>
+</html>
+

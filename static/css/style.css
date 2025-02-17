@@ -1,0 +1,38 @@
+body {
+    font: 18px;
+    padding: 0 10px; 
+    max-width: 650px !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+li, code, pre {
+    max-width: 650px;
+    word-wrap: break-word;
+}
+
+pre {
+    padding: 10px;
+}
+
+
+a {
+color: #551a8b;
+}
+
+blockquote {
+border: solid 3px #E65C00;
+    background-color: #FF944D;
+padding: 1em;
+}
+
+.dark {
+background: #1e1e1e;
+color: white;
+}
+
+.dark a {
+color: fuchsia;
+}

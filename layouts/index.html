@@ -1,25 +1,17 @@
-{{ define "main" }}
-
-<p>Hi, I'm Timo! I happen to like computers,<br>
-  linux, cyber, crypto, and karate</p>
-
-  <p>Please read my <a href="/a">about</a> page</p>
-<p><site@t0.vc/p>
-  <p>CV</p>
-
-
-
-
-
-<span>Technical Founder - Azurexpiry, '24-<br>
-IT Systemadministrator - Perlen Papier, '24-<br>
-IT System Engineer (Apprentice) - Perlen Papier, '20-'24<br>
-Information Technologist (Federal Diploma)</span>
-
-<p>Blog</p>
-{{ range .Paginator.Pages }}
-{{ if ne .Layout "page" }}
-<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Site.Title }}</title>
+<link rel="stylesheet" href="/css/style.css">
+</head> 
+<body>
+<h1>{{ .Site.Title }}</h1>
+<span id="t" onclick="document.body.classList.toggle('dark'); this.textContent = document.body.classList.contains('dark') ? '☀️  light' : '🌑 dark';">🌑 dark</span><br><br>
+{{ range .Site.RegularPages }}
+{{ .Date.Format "2006 Jan 2" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a><br><br>
 {{ end }}
-{{ end }}
-{{ end }}
+</body> 
+</html>
+
