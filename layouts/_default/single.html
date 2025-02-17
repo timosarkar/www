@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }}</title>
+<link rel="stylesheet" href="/css/style.css">
 <body>
-    <h1>{{ .Title }}</h1>
-    <hr>
-
-{{ .Date.Format "2006 Jan 3 " }}<a href="/">See all posts</a>
-    <div>{{ .Content }}</div>
-    <a href="/">Back to homepage</a>
+<h1>{{ .Title }}</h1>
+<hr>
+{{ .Date.Format "2006 Jan 3 " }}<a href="/"> See all posts</a>
+<div>{{ .Content }}</div>
+<a href="/">Back to homepage</a>
+<marquee>This text will scroll from right to left</marquee>
 </body>
 </html>
 

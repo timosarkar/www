@@ -1,5 +1,5 @@
 body {
-    font: 18px;
+    font: unset;
     padding: 0 10px; 
     max-width: 650px !important;
 }
