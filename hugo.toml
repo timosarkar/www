@@ -1,5 +1,6 @@
 baseURL = 'https://example.org/'
-title = "Timo Sarkar's Website"
+title = 'Timo Sarkar - Website'
+
 
 [markup]
   defaultMarkdownHandler = "goldmark"
