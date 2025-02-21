@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Category B on Timo Sarkar&#39;s Website</title>
+    <link>http://localhost:1313/categories/category-b/</link>
+    <description>Recent content in Category B on Timo Sarkar&#39;s Website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Feb 2025 09:21:52 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/category-b/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reasons to have higher L1 gas limits even in an L2-heavy Ethereum</title>
+      <link>http://localhost:1313/collusion/</link>
+      <pubDate>Fri, 21 Feb 2025 09:21:52 +0100</pubDate>
+      <guid>http://localhost:1313/collusion/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I&amp;#39;d say high bandwidth is a more dangerous assumption to make than high compute reqs. The basic reason is if you have a computer you (generally) can expect to keep that computer, but an internet connection has no such guarantees. Reasons:&lt;br&gt;&lt;br&gt;* censorship&lt;br&gt;* disruption to internet…&lt;/p&gt;&amp;mdash; vitalik.eth (@VitalikButerin) &lt;a href=&#34;https://twitter.com/VitalikButerin/status/1891178728090137066?ref_src=twsrc%5Etfw&#34;&gt;February 16, 2025&lt;/a&gt;&lt;/blockquote&gt;&#xA;&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;p&gt;This is an inline \(a^*=x-b^*\) equation.&lt;/p&gt;&#xA;&lt;p&gt;These are block equations:&lt;/p&gt;&#xA;\[a^*=x-b^*\]\[ a^*=x-b^* \]\[&#xA;a^*=x-b^*&#xA;\]&lt;p&gt;These are also block equations:&lt;/p&gt;&#xA;$$a^*=x-b^*$$$$ a^*=x-b^* $$$$&#xA;a^*=x-b^*&#xA;$$\[&#xA;\begin{aligned}&#xA;KL(\hat{y} || y) &amp;= \sum_{c=1}^{M}\hat{y}_c \log{\frac{\hat{y}_c}{y_c}} \\&#xA;JS(\hat{y} || y) &amp;= \frac{1}{2}(KL(y||\frac{y+\hat{y}}{2}) + KL(\hat{y}||\frac{y+\hat{y}}{2}))&#xA;\end{aligned}&#xA;\]</description>
+    </item>
+  </channel>
+</rss>

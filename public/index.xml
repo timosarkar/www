@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Timo Sarkar&#39;s Website</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Timo Sarkar&#39;s Website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Feb 2025 09:21:52 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reasons to have higher L1 gas limits even in an L2-heavy Ethereum</title>
+      <link>http://localhost:1313/collusion/</link>
+      <pubDate>Fri, 21 Feb 2025 09:21:52 +0100</pubDate>
+      <guid>http://localhost:1313/collusion/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I&amp;#39;d say high bandwidth is a more dangerous assumption to make than high compute reqs. The basic reason is if you have a computer you (generally) can expect to keep that computer, but an internet connection has no such guarantees. Reasons:&lt;br&gt;&lt;br&gt;* censorship&lt;br&gt;* disruption to internet…&lt;/p&gt;&amp;mdash; vitalik.eth (@VitalikButerin) &lt;a href=&#34;https://twitter.com/VitalikButerin/status/1891178728090137066?ref_src=twsrc%5Etfw&#34;&gt;February 16, 2025&lt;/a&gt;&lt;/blockquote&gt;&#xA;&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;p&gt;This is an inline \(a^*=x-b^*\) equation.&lt;/p&gt;&#xA;&lt;p&gt;These are block equations:&lt;/p&gt;&#xA;\[a^*=x-b^*\]\[ a^*=x-b^* \]\[&#xA;a^*=x-b^*&#xA;\]&lt;p&gt;These are also block equations:&lt;/p&gt;&#xA;$$a^*=x-b^*$$$$ a^*=x-b^* $$$$&#xA;a^*=x-b^*&#xA;$$\[&#xA;\begin{aligned}&#xA;KL(\hat{y} || y) &amp;= \sum_{c=1}^{M}\hat{y}_c \log{\frac{\hat{y}_c}{y_c}} \\&#xA;JS(\hat{y} || y) &amp;= \frac{1}{2}(KL(y||\frac{y+\hat{y}}{2}) + KL(\hat{y}||\frac{y+\hat{y}}{2}))&#xA;\end{aligned}&#xA;\]</description>
+    </item>
+    <item>
+      <title>Zippenheimer</title>
+      <link>http://localhost:1313/zippenheimer/</link>
+      <pubDate>Wed, 15 Jan 2025 16:59:29 +0100</pubDate>
+      <guid>http://localhost:1313/zippenheimer/</guid>
+      <description>&lt;p&gt;During some of my doom scrolling on youtube, I have found a guy flexing his new &lt;strong&gt;1 trillion zettabyte&lt;/strong&gt; zipbomb. First, I was blown away how he managed to fit 1 trillion zettabytes of data into a 122 kilobytes sized zipfile. He states, that he used a recursive nested approach where you start with lets say, 1 gigabyte of base data which you then compress into a zipfile with a very high compression ratio (likely &amp;gt;95%). Then you create n amount of layers where each layer contains an n amount of recursively zipped base data. Since you compress the files using a very high compression ratio, you can fit &lt;strong&gt;a lot of data&lt;/strong&gt; into a zipfile. &lt;strong&gt;And I mean really a lot!&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Analysing a state-sponsored APT29 malware</title>
+      <link>http://localhost:1313/nobelium/</link>
+      <pubDate>Fri, 06 Dec 2024 16:04:46 +0100</pubDate>
+      <guid>http://localhost:1313/nobelium/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Note: I am still working on this post since my initial analysis is still a work in progress.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;As how often I do, I stumbled upon a very interesting malware sample on &lt;a href=&#34;https://bazaar.abuse.ch&#34;&gt;abuse.ch&lt;/a&gt;. I usually just look for malware samples from high-profilic threat-actors and advanced persistent threats (APT). The sample was first ever seen on 5th of December 2024 on 21:05:31 UTC. So this sample is brand new and has never ever been seen in this form. Possibly this is the first analysis for this variant.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Personal notes on Podman</title>
+      <link>http://localhost:1313/podman-notes/</link>
+      <pubDate>Fri, 06 Dec 2024 13:35:03 +0100</pubDate>
+      <guid>http://localhost:1313/podman-notes/</guid>
+      <description>&lt;p&gt;Podman is really cool. I have just recently stumbled upon it, since I&#xA;was looking for a good docker alternative. It is really fast and lightweight.&#xA;Here are my personal notes on Podman.&lt;/p&gt;&#xA;&lt;h2 id=&#34;installing-podman&#34;&gt;Installing Podman&lt;/h2&gt;&#xA;&lt;p&gt;To install Podman you need to be on an Unix like Debian or Ubuntu. I am on&#xA;Ubuntu so this will be the install command for me.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install podman -y&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After that you can verify the installation with the following command.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>On Lucid Dreaming</title>
+      <link>http://localhost:1313/lucid-dreaming/</link>
+      <pubDate>Fri, 06 Dec 2024 13:31:28 +0100</pubDate>
+      <guid>http://localhost:1313/lucid-dreaming/</guid>
+      <description>&lt;p&gt;Recently I have re-watched the award winning scifi movie Inception that has been&#xA;directed by Christopher Nolan. The movie plot as well as the tech they have used were&#xA;really fascinating. The idea of constructing and controlling a persons subconscious mind&#xA;did really struck with me. I genuinely had to do some research on this, as I was&#xA;hyped up.&lt;/p&gt;&#xA;&lt;p&gt;I then came around with the proven concept of Lucid Dreaming. So Lucid Dreaming is&#xA;a state that can take place when you are aware that you are dreaming. Resulting you can force&#xA;your subconscious mind to alter the dream arbitrarily to any of your likings. For example&#xA;lucid dreamers can study during their dreams or solve complex riddles.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello world once again!</title>
+      <link>http://localhost:1313/hello/</link>
+      <pubDate>Fri, 06 Dec 2024 09:40:42 +0100</pubDate>
+      <guid>http://localhost:1313/hello/</guid>
+      <description>&lt;p&gt;Hello world once again from my new blog. I recall rebuilding my blog for atleast 20 times the last few years. This time I use the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo static-site generator&lt;/a&gt; to build my HTML page.&#xA;As usually, I write content in form of Markdown which is a simple and very lightweight markup language that allows you to write content in plaintext instead of cluttered HTML.&lt;/p&gt;&#xA;&lt;p&gt;The stylesheet of this blog is stripped down to the bare minimum and will most likely fit easily into your businesscard. The raison-d&amp;rsquo;etre is my obsession with &lt;a href=&#34;https://brutalistwebsites.com/&#34;&gt;brutalist- and minimalist webdesign&lt;/a&gt;. I think that when you want your target audience to really focus on your content, then you should make your site as accessible and easy to read as possible. Also this site does not collect data nor any types of analytical data or cookies from you.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

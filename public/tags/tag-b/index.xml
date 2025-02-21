@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tag B on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/tag-b/</link>
+    <description>Recent content in Tag B on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Feb 2025 09:21:52 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tag-b/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reasons to have higher L1 gas limits even in an L2-heavy Ethereum</title>
+      <link>http://localhost:1313/collusion/</link>
+      <pubDate>Fri, 21 Feb 2025 09:21:52 +0100</pubDate>
+      <guid>http://localhost:1313/collusion/</guid>
+      <description>&lt;p&gt;asasass&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html>
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<style>
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1c1c;
+        color: white;
+    }
+    .markdown-body table tr {
+        background-color: #1c1c1c;
+    }
+    .markdown-body table tr:nth-child(2n) {
+        background-color: black;
+    }
+}
+</style>
+
+
+
+<link rel="alternate" type="application/rss+xml" href="../../../../feed.xml" title="Über Kollusion">
+
+
+
+<link rel="stylesheet" type="text/css" href="../../../../css/common-vendor.b8ecfc406ac0b5f77a26.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/fretboard.f32f2a8d5293869f0195.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/pretty.0ae3265014f89d9850bf.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/pretty-vendor.83ac49e057c3eac4fce3.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/global.css">
+<link rel="stylesheet" type="text/css" href="../../../../css/misc.css">
+
+<script type="text/x-mathjax-config">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']]
+  },
+  svg: {
+    fontCache: 'global',
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../scripts/tex-svg.js">
+</script>
+<script async src="https://platform.twitter.com/widgets.js" loading="lazy" charset="utf-8"></script> 
+
+<style>
+  .twitter-tweet {
+    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+</style>
+
+<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+
+<div id="color-mode-switch">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+  </svg>
+  <input type="checkbox" id="switch" />
+  <label for="switch">Dark Mode Toggle</label>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+  </svg>
+</div>
+
+<script type="text/javascript">
+  
+  const toggleDarkMode = () => {
+    const root = document.querySelector('html');
+    root.classList.toggle('dark');
+  }
+
+  
+  const toggleColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    if (colorScheme === 'light') localStorage.setItem('colorScheme', 'dark');
+    else localStorage.setItem('colorScheme', 'light');
+  }
+
+  
+  const toggle = document.querySelector('#color-mode-switch input[type="checkbox"]');
+  if (toggle) toggle.onclick = () => {
+    toggleDarkMode();
+    toggleColorScheme();
+  }
+
+  
+  const checkColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    
+    if (colorScheme === null || colorScheme === undefined) localStorage.setItem('colorScheme', 'light');
+    
+    if (colorScheme === 'dark') {
+      toggle.checked = true;
+      toggleDarkMode();
+    }
+  }
+  checkColorScheme();
+</script>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Hello world once again!" />
+<br>
+<h1 style="margin-bottom:7px">Hello world once again!</h1>
+<small style="float:left; color: #888">2024 Dec 9 </small>
+<small style="float:right; color: #888"><a href="../../../../index.html">See all posts</a></small>
+<br><br><br>
+<title>Hello world once again!</title>
+<p>Hello world once again from my new blog. I recall rebuilding my blog for atleast 20 times the last few years. This time I use the <a href="https://gohugo.io">Hugo static-site generator</a> to build my HTML page.
+As usually, I write content in form of Markdown which is a simple and very lightweight markup language that allows you to write content in plaintext instead of cluttered HTML.</p>
+<p>The stylesheet of this blog is stripped down to the bare minimum and will most likely fit easily into your businesscard. The raison-d&rsquo;etre is my obsession with <a href="https://brutalistwebsites.com/">brutalist- and minimalist webdesign</a>. I think that when you want your target audience to really focus on your content, then you should make your site as accessible and easy to read as possible. Also this site does not collect data nor any types of analytical data or cookies from you.</p>
+<blockquote>
+<p>Note: The design for this blog is based almost 100% on the design that Vitalik Buterin (Founder of Ethereum) uses on his page. Tho I am using a different way to generate my pages and handle contents. All props go to Vitalik for this slick design. Check out his page: <a href="https://vitalik.eth.limo">https://vitalik.eth.limo</a></p>
+</blockquote>
+<p>I use <a href="https://vercel.io">vercel</a> as my CI/CD (continuos integration / continuous delivery) platform which is cloud-based and allows me to initiate deployment processes for this site from anywhere and at anytime for free.</p>
+<p>Currently, I use the <a href="https://nixos.org">Nix package-manager</a> to manage my local builds so I can always trust on my nix-shell to use the pre-defined version of Hugo and not break my current infra.</p>
+
+</div>

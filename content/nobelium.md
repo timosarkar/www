@@ -1,5 +1,5 @@
 +++
-title = "Analysing a state-sponsored NOBELIUM malware"
+title = "Analysing a state-sponsored APT29 malware"
 date = 2024-12-06T16:04:46+01:00
 +++
 
