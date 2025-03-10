@@ -1,6 +1,6 @@
 +++
 date = '2025-03-10T17:45:11+01:00'
-draft = true
+draft = false
 title = 'Malware Detonation Chamber on Vagrant'
 +++
 
