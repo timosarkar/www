@@ -1,0 +1,64 @@
+# Create a network for the Elastic Stack containers
+podman network create elastic
+
+# Create volumes for persistent data
+podman volume create elasticsearch-data
+
+#########################################################################33
+
+# Run Elasticsearch container
+podman run -d \
+  --name elasticsearch \
+  --net elastic \
+  -p 9200:9200 \
+  -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "xpack.security.enabled=true" \
+  -e "ELASTIC_PASSWORD=yourpassword" \
+  -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+  -v elasticsearch-data:/usr/share/elasticsearch/data \
+  docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+
+
+
+# Connect to the Elasticsearch container
+podman exec -it elasticsearch bash
+
+# Create a Kibana service account token
+bin/elasticsearch-service-tokens create elastic/kibana kibana-token
+
+# This will output a token - SAVE IT SOMEWHERE SAFE
+# Exit the container
+exit
+
+
+#################################################################
+
+
+podman run -d \
+  --name kibana \
+  --net elastic \
+  -p 5601:5601 \
+  -e "ELASTICSEARCH_HOSTS=http://elasticsearch:9200" \
+  -e "ELASTICSEARCH_SERVICEACCOUNTTOKEN=YOUR_TOKEN_FROM_STEP_2" \
+  -e "SERVER_HOST=0.0.0.0" \
+  -v kibana-data:/usr/share/kibana/data \
+  docker.elastic.co/kibana/kibana:8.12.0
+
+
+######################################### verify #################
+
+# Check running containers
+podman ps
+
+# Check Elasticsearch status
+podman exec elasticsearch curl -u elastic:yourpassword http://localhost:9200
+
+# Check Kibana logs
+podman logs kibana
+
+########################################## test #################
+
+access web:
+elasticsearch -> localhost:9200
+kibana -> localhost:5601
