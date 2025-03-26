@@ -29,12 +29,7 @@ From the output of the command, I could to see that this was a batchfile indeed.
 
 ## Stage-1: Deobfuscation Fun, right?
 
-
-<div style="display:block;margin:auto;width:50%;">
-
 ![meme](/deobf.jpg)
-
-</div>
 
 From the first sight, I can say that this first sample is very much obfuscated. Here is a snippet for you:
 
