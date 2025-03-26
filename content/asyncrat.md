@@ -12,6 +12,7 @@ This post is actually not new. I had actually already performed a static analysi
 First I wanna share some basic information on the flagged threat and its expected behaviour. AsyncRAT is a commonly used **Remote Access Trojan** that is designed to monitor and control an infected target machine over a stealthy encrypted communication with a command and control server. AsyncRAT also enabled the attackers to exfiltrate sensible data to their c2. Sometimes it also loads different malware variants.
 
 Some quick-and-dirty facts on the sample:
+
 - **Source**: bazaar.abuse.ch
 - **First Seen**: 26th March 2025 07:50
 - **URL**: https://bazaar.abuse.ch/sample/f99267a4d305fa5fbbcc6c474c8dc3f0c071e837829db5ec805a67161270d7f1/
