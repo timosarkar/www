@@ -94,6 +94,8 @@ html, body {
 */
 #doc img {
   border: none;
+  display: block;
+  margin: auto;
   border-radius: 3px;
   box-sizing: border-box;
 }
