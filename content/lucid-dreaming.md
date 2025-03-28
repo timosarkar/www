@@ -43,7 +43,7 @@ with 3 or 4 layers of dreams within a dream. Even this is possible in real life.
 Then there is lots of other crazy and cool stuff that you can do such as Astral Projection, Dream Teleportation, exploring Alien
 worlds, studying for an upcoming exam and entering the Lucid Void / Limbus.
 
-## I want to become a Dream Architect/Engineer
+## I want to be a Dream Architect/Engineer
 
 I think the neuroscience space and research of the human subconscious mind opens us so many new doors and ways
 on how we can extend the horizon from whats known. In my opinion, an utopian future, where we can seamlessly control

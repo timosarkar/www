@@ -1,8 +1,10 @@
 +++
 date = '2025-03-28T11:30:24+01:00'
-draft = true
+draft = false
 title = '🦇 Dissecting VanHelsing Ransomware'
 +++
+
+![bat](https://external-preview.redd.it/XpIAF80Z7sySg5kVUpeC3qFt01lfmgr-6NsRqdtOmU0.jpg?auto=webp&s=90e8dee3721663ed36a73b1cbd35a806c0551ee0)
 
 In this post I will analyse the internals of the new VanHelsing Ransomware and its functionalities. **VanHelsing Ransomware** launched on March 7, 2025. Its basically off-the-bat a pretty new threat that I am going to analyse. Note: This post will only focus on static analysis of VanHelsing using Ghidra. I might do another post for dynamic analysis in my detonation chamber, so stay tuned!
 
@@ -558,7 +560,48 @@ README.txt
 .drv
 ```
 
+## Concluding
+
+The VanHelsing ransomware first appeared two weeks ago. Now end of march, I already could to fully (kinda) analyse this sample.
+Within TWO WEEKS! I think I have done a quite good job taking into consideration that I have never really used Ghidra much on my new Mac.
+But related to VanHelsing itself, I do not think this is much of a new threat, surely it has new types of signatures and this and that but, it is imho just a Lockbit copycat.
+There is no new TTPs except for the stealthy decoupled encryption routine. 
+
 ## Threat Intelligence
 
-- **MD5**: 79106dd259ba5343202c2f669a0a61b10adfadff
-- **MD5**: e683bfaeb1a695ff9ef1759cf1944fa3bb3b6948
+- **SHA256**: 99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98
+- **MD5**: 3e063dc0de937df5841cb9c2ff3e4651
+- **Compile Date**: 2025-03-11 08:47:59+01:00
+- **Negotiation-Pages**: 
+  - http://vanhelcbxqt4tqie6fuevfng2bsdtxgc7xslo2yo7nitaacdfrlpxnqd.onion
+  - http://vanhelqmjstkvlhrjwzgjzpq422iku6wlggiz5y5r3rmfdeiaj3ljaid.onion
+  - http://vanhelsokskrlaacilyfmtuqqa5haikubsjaokw47f3pt3uoivh6cgad.onion
+  - http://vanheltarnbfjhuvggbncniap56dscnzz5yf6yjmxqivqmb5r2gmllad.onion
+  - http://vanhelvuuo4k3xsiq626zkqvp6kobc2abry5wowxqysibmqs5yjh4uqd.onion
+  - http://vanhelwmbf2bwzw7gmseg36qqm4ekc5uuhqbsew4eihzcahyq7sukzad.onion
+  - http://vanhelxjo52qr2ixcmtjayqqrcodkuh36n7uq7q7xj23ggotyr3y72yd.onion
+- **YARA-Rule**: View below:
+
+```bash
+rule Detect_VanHelsing_Ransomware
+{
+    meta:
+        description = "Detects VanHelsing Ransomware"
+        author = "Timo Sarkar"
+        date = "2025-03-28"
+        reference = "timosarkar.vercel.app/vanhelsing"
+    
+    strings:
+        $string1 = ".vanlocker"
+        $string2 = "Global\\VanHelsing"
+        $string3 = "LOCKED SUCCESSFULLY"
+        $string4 = "--= No news is a good news ! =--\n\nYour network has been breached and all your  files Personal data, financial reports and important documents  has been stolen , encryp ted and ready to publish to public,\n\nif you willing to continue your bussines and m ake more money and keep bussines secret safe you need to restore your files first, An d to restore all your files you have to pay the ransom in Bitcoin. \ndon\'t bother yo ur self and wast your time or make it more harder on your bussines , we developed a l ocker that can\'t be decrypted using third part decrypters .\n\nmaking your self geek  and trying to restore the files with third part decrypter this will leads to lose al l your date ! and then the even you pay the ransom can\'t help you to restore your fi les even us.\n\nto chat with us :\n\n1 - Download tor browser https://www.torproject. org/download/\n2 - go to one of these links above\n\thttp://vanhelcbxqt4tqie6fuevfng2 bsdtxgc7xslo2yo7nitaacdfrlpxnqd.onion\n\thttp://vanhelqmjstkvlhrjwzgjzpq422iku6wlggiz 5y5r3rmfdeiaj3ljaid.onion\n\thttp://vanhelsokskrlaacilyfmtuqqa5haikubsjaokw47f3pt3uoi vh6cgad.onion\n\thttp://vanheltarnbfjhuvggbncniap56dscnzz5yf6yjmxqivqmb5r2gmllad.onio n\n\t\n3 - you will be asked for your ticket id to enter the chat this for you : TICK ET ID ca11d09d4d234ab8c9a9260c0905a421\n\nusefull links : \n#OUR TOR BLOG :\nhttp://v anhelvuuo4k3xsiq626zkqvp6kobc2abry5wowxqysibmqs5yjh4uqd.onion\nhttp://vanhelwmbf2bwzw 7gmseg36qqm4ekc5uuhqbsew4eihzcahyq7sukzad.onion\nhttp://vanhelxjo52qr2ixcmtjayqqrcodk uh36n7uq7q7xj23ggotyr3y72yd.onion"
+        $string5 = "VanHelsing"
+        $
+
+    condition:
+        hash.sha256(0, filesize) == "99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98" or
+        hash.md5(0, filesize) == "3e063dc0de937df5841cb9c2ff3e4651" or
+        any of ($string*)
+}
+```
