@@ -109,7 +109,7 @@ After some manual debug-symbol validation and function demangling, I figured out
 
 ```c
 unaff_ESI = main();
-````
+```
 
 We now need to analyse the ```main()``` function as this is where things get interesting.
 
