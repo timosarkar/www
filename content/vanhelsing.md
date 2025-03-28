@@ -560,6 +560,7 @@ README.txt
 .drv
 ```
 
+
 ## Concluding
 
 The VanHelsing ransomware first appeared two weeks ago. Now end of march, I already could to fully (kinda) analyse this sample.
@@ -582,7 +583,8 @@ There is no new TTPs except for the stealthy decoupled encryption routine.
   - http://vanhelxjo52qr2ixcmtjayqqrcodkuh36n7uq7q7xj23ggotyr3y72yd.onion
 - **YARA-Rule**: View below:
 
-```bash
+
+```
 rule Detect_VanHelsing_Ransomware
 {
     meta:
@@ -603,5 +605,4 @@ rule Detect_VanHelsing_Ransomware
         hash.md5(0, filesize) == "3e063dc0de937df5841cb9c2ff3e4651" or
         any of ($string*)
 }
-
 ```
