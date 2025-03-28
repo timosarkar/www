@@ -597,11 +597,11 @@ rule Detect_VanHelsing_Ransomware
         $string3 = "LOCKED SUCCESSFULLY"
         $string4 = "--= No news is a good news ! =--\n\nYour network has been breached and all your  files Personal data, financial reports and important documents  has been stolen , encryp ted and ready to publish to public,\n\nif you willing to continue your bussines and m ake more money and keep bussines secret safe you need to restore your files first, An d to restore all your files you have to pay the ransom in Bitcoin. \ndon\'t bother yo ur self and wast your time or make it more harder on your bussines , we developed a l ocker that can\'t be decrypted using third part decrypters .\n\nmaking your self geek  and trying to restore the files with third part decrypter this will leads to lose al l your date ! and then the even you pay the ransom can\'t help you to restore your fi les even us.\n\nto chat with us :\n\n1 - Download tor browser https://www.torproject. org/download/\n2 - go to one of these links above\n\thttp://vanhelcbxqt4tqie6fuevfng2 bsdtxgc7xslo2yo7nitaacdfrlpxnqd.onion\n\thttp://vanhelqmjstkvlhrjwzgjzpq422iku6wlggiz 5y5r3rmfdeiaj3ljaid.onion\n\thttp://vanhelsokskrlaacilyfmtuqqa5haikubsjaokw47f3pt3uoi vh6cgad.onion\n\thttp://vanheltarnbfjhuvggbncniap56dscnzz5yf6yjmxqivqmb5r2gmllad.onio n\n\t\n3 - you will be asked for your ticket id to enter the chat this for you : TICK ET ID ca11d09d4d234ab8c9a9260c0905a421\n\nusefull links : \n#OUR TOR BLOG :\nhttp://v anhelvuuo4k3xsiq626zkqvp6kobc2abry5wowxqysibmqs5yjh4uqd.onion\nhttp://vanhelwmbf2bwzw 7gmseg36qqm4ekc5uuhqbsew4eihzcahyq7sukzad.onion\nhttp://vanhelxjo52qr2ixcmtjayqqrcodk uh36n7uq7q7xj23ggotyr3y72yd.onion"
         $string5 = "VanHelsing"
-        $
 
     condition:
         hash.sha256(0, filesize) == "99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98" or
         hash.md5(0, filesize) == "3e063dc0de937df5841cb9c2ff3e4651" or
         any of ($string*)
 }
+
 ```
