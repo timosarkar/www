@@ -1,7 +1,7 @@
 +++
 date = '2025-03-10T17:45:11+01:00'
 draft = false
-title = 'DevSecOps: Malware Detonation Chamber on Vagrant'
+title = '🧨 DevSecOps: Malware Detonation Chamber on Vagrant'
 +++
 
 If you follow me on the socials, you know that I often perform lots of static malware-analysis and reverse-engineering. But ever so often, I do dynamic analysis for the more profilic threats. My last one was to dynamically analyse the, then newly leaked LockBit 4 builder and ransomware including PowerShell Stager. 
