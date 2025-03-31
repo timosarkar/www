@@ -4,6 +4,8 @@ draft = false
 title = '🐙 Wasiwiper: WASM for Stealth Offensive Security'
 +++
 
+![wasmlogo](https://miro.medium.com/v2/resize:fit:612/1*igmwlOsICf5E1oNVyUZhoQ.png)
+
 Yesterday, I was experimenting with the WASM technology in one of my gazillion side-projects. WASM stands for **WebAssembly** and is a binary instruction format that allows compiling and executing non-browser code in a browser environment. **Think of running C or C++ in your Browser**. I have used this technology for one project that I built using Rust.
 
 Today morning It struck me with it... I had an insaneeee idea. What if we could write native malware using a backend language such as Golang or Rust and let it run in the browser without the os ever noticing that we are running native code in a browser-subprocess. So here am I yet again trying to pitch you another exotic malware method 😂. The plan is to write a primitive wiper that is supposed to use high-level Microsoft OS APIs and simply disk i/o to wipe files and overwrite them effectively using rand data.
