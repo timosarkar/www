@@ -1,0 +1,14 @@
+[[entries]]
+title = "writings"
+
+  [entries.post_list]
+  limit = 100
+  show_more = false
+
+[[entries]]
+title = "rss"
+url = "index.xml"
+
+[[entries]]
+title = "contact"
+url = "/contact"
