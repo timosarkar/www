@@ -4,11 +4,6 @@ title= "Timo Sarkar"
   name = "riggraz"
   homepage = "https://riggraz.dev/"
   repo = "https://github.com/riggraz/no-style-please"
-  
-[module]
-  [module.hugoVersion]
-    extended = true
-    min      = "0.41.0"
 
 [markup]
   [markup.goldmark]
