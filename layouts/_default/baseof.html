@@ -1,10 +1,15 @@
-<html lang="{{ $.Site.LanguageCode }}">
-    {{- partial "head.html" . -}}
-    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
-        <main class="page-content" aria-label="Content">
-            <div class="w">
-                {{- block "main" . }}{{- end }}
-            </div>
-        </main>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ .Title }}</title>
+
+{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+
+
+</head>
+<body>
+<div class="container-lg px-3 my-5 markdown-body">
+  {{ block "main" . }}{{ end }}</div>
+</body>
 </html>

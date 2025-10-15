@@ -1,9 +1,5 @@
 {{ define "main" }}
-{{ partial "back_link.html" .}}
-
-<article>
-    <h1>{{ .Title }}</h1>
-
-    {{ .Content }}
-</article>
+<h1><a href="{{ "/" | relURL }}">blog</a></h1>
+ <h1>{{ .Title }}</h1>
+  {{ .Content }}
 {{ end }}

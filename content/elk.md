@@ -1,7 +1,7 @@
 +++
 date = '2025-03-10T19:20:08+01:00'
 draft = false
-title = '🫎 Provisioning ELK-Stack using Podman'
+title = 'Provisioning ELK-Stack using Podman'
 +++
 
 You may have already seen my previous post about **podman**, right? It is a super lightweight container engine that is basically docker without a service daemon, which makes it like 10x faster than alts like docker or rancher. Also, podman is used frequently in kubernetes (k8s). I have now decided to use podman now for more serious things and see how far it can go. In this post, I therefore wan't to outline the steps needed to provision a fully fledged ELK-Stack using Podman. ELK-Stack is a common techstack used in many SOC-Teams around the globe. It has very good capabilities to function as a modular SIEM. For the sake of beeing, I have decided to not use logstash, since we do not ingress any logs yet. The stack will consist just of **ElasticSearch** and **Kibana**.

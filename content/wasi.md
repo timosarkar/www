@@ -1,7 +1,7 @@
 +++
 date = '2025-03-31T19:41:01+02:00'
 draft = false
-title = '🐙 Wasiwiper: WASM for Stealth Offensive Security'
+title = 'Wasiwiper: WASM for Stealth Offensive Security'
 +++
 
 ![wasmlogo](https://miro.medium.com/v2/resize:fit:612/1*igmwlOsICf5E1oNVyUZhoQ.png)

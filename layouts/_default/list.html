@@ -1,8 +1,14 @@
 {{ define "main" }}
-{{ partial "back_link.html" .}}
+  <h1><a href="{{ "/" | relURL }}">blog</a></h1>
 
 <h1>{{ .Title }}</h1>
 
-{{ .Content }}
-{{ partial "post_list.html" (dict "context" . "section" .Section)}}
+<a href="{{ "/wh0am1" | relURL }}">wh0am1</a>
+
+<h2>Posts</h2>  
+<ul>
+    {{ range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> {{ dateFormat "2006-01-02" .PublishDate }} <code class="language-plaintext highlighter-rouge">blog</code></li>
+    {{ end }}
+  </ul>
 {{ end }}

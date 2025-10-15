@@ -1,7 +1,7 @@
 +++
 date = '2025-03-14T11:12:39+01:00'
 draft = true
-title = '🧢 ATproto in a nutshell'
+title = 'ATproto in a nutshell'
 +++
 
 **ATproto** is somewhat of a new communication protocol for the social internet layer. I have originally first heard about it when a lot of users pivoted to alternative platforms during the Elon Musk takeover of Twitter. Back then, the social media platform **Bluesky** gained a lot of traction for picking up these users into their new ATproto-based platform.

@@ -1,7 +1,7 @@
 +++
 date = '2025-03-28T11:30:24+01:00'
 draft = false
-title = '🦇 Dissecting VanHelsing Ransomware'
+title = 'Dissecting VanHelsing Ransomware'
 +++
 
 ![bat](https://external-preview.redd.it/XpIAF80Z7sySg5kVUpeC3qFt01lfmgr-6NsRqdtOmU0.jpg?auto=webp&s=90e8dee3721663ed36a73b1cbd35a806c0551ee0)

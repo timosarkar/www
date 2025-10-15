@@ -1,7 +1,7 @@
 +++
 date = '2025-03-26T12:45:13+01:00'
 draft = false
-title = '🐀 Multistage AsyncRAT - Static Analysis'
+title = 'Multistage AsyncRAT - Static Analysis'
 +++
 
 ![rat](/rat.png)
