@@ -1,7 +1,7 @@
 ---
-title: "SOC Cases: Tycoon2FA"
+title: "SOC Cases: Tycoon2FA a sophisticated PhaaS"
 date: 2025-10-22T14:10:40+02:00
-draft: true
+draft: false
 ---
 
 This morning I encountered another alert in our SIEM as usual. The alert indicated potential spearphishing beeing reported by an user.
@@ -455,7 +455,7 @@ var userAgent = navigator.userAgent;
 if (userAgent.match(/edg/i)) browserName = "Edge";
 ```
 
-After that it sets up a basic AES-CBC encryption. Both the Key and the IV are hardcoded showing weap OPSEC. (SHAME ON YOU...).
+After that it sets up a basic AES-CBC encryption. Both the Key and the IV are hardcoded showing weak OPSEC. (SHAME ON YOU...).
 
 ```javascript
 const key = CryptoJS.enc.Utf8.parse('1234567890123456');
@@ -655,4 +655,29 @@ function m(C) {
 }
 ```
 
-Another huge one right? I really start to think that Tycoon2FA is really a sophisticated PhaaS. This script looks like a malware-dropper with anti-tampering, anti-debug, anti-analysis & anti-younameit script with heavy obfuscation. Ok, I am a deobfuscation pro. Let me do this quickly...
+Another huge one right? I really start to think that Tycoon2FA is really a sophisticated PhaaS. This script looks like a malware-dropper with anti-tampering, anti-debug, anti-analysis & anti-younameit script with heavy obfuscation. Ok, I am a deobfuscation pro. Let me do this quickly... Really what it does, it loads a gigantic XOR payload into memory and decrypts it (including layers of boolean-obfuscation) and then writes it to the targets machine using ```document.write```. Currently I am still investigating this script. It seems to be some 3d-party malware dropper.
+
+## A closer look at the threat-actor
+
+Now lets take a look at who this ominous threat actor actually is. I actually took some time to message the bigoffice boy on telegram and find out more about him. Since his contact was hardcoded in the source-code he must be some kind of operator or owner of this thing. These are his responses, confirming my suspection:
+
+![profile](/ta.jpg)
+![chat](/chat.jpg)
+
+🤣. Ok dont worry, I made an anonymous account and hid my phonenumber. I also came from a VPN. But there we go. We cought him. Shortly after that, sadly he blocked me. I would have loved to take a closer look at the admin panel. But thats it. Apparently after taking a look at his Telegram profile, I have seen several NFTs that he minted alongside his TON Blockchain wallet which is connected to his profile. The TON Wallet is: 
+
+```bash
+0xUQAxUejig4-HXZacvoqgYgJUbSrZsV_w-WcWJxTARVMkSgUl
+```
+
+Also there is a domainname connected to that wallet adress, called ```edgedrain-work.ton```. Currently the wallet holds about 1.5k USD in form of USDT Stablecoins. The wallet itself is already marked as scam on tonviewer.com. When connecting to the domainname, I figured out this guy also operates a crypto wallet drainer which is sold within another telegram channel. Crazy right?? Haha.
+
+## Indicators of Compromise
+
+- **https://67489930000338928291133-b0gabfabbbaka4ej.z03.azurefd.net/**
+- **https://baddy038939399388338389.z13.web.core.windows.net**
+- **https://telegram.me/bigofficeboy**
+- **https://rJBmUQXjhwSvq6onCNpprI7lTSOVnaHAi8yXPZQL9XtNgsLTPKT.fronziia.digital/anUTVzUSwDygTziajkJgeRCVXASDCNRTNLOHVDBTIQGCVXH**
+- **edgedrain-work.ton**
+- **0xUQAxUejig4-HXZacvoqgYgJUbSrZsV_w-WcWJxTARVMkSgUl**
+- **info@usemultiplier.com**
