@@ -4,5 +4,5 @@ title = 'Timo Sarkar'
 
 [markup]
   [markup.highlight]
-    style = 'witchhazel'
+    style = 'onedark'
     tabWidth = 2
