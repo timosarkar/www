@@ -1,7 +1,7 @@
 ---
 title: "0ffS3c: EDR-Redirv2"
 date: 2025-11-03T10:39:40+01:00
-draft: true
+draft: false
 ---
 
 Happy me! I am announcing yet-another series called **0ffS3c**. It is intended to highlight novel TTPs as well as redteaming engagements.
