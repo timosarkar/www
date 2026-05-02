@@ -1,0 +1,15 @@
+{
+	"name": "www",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"author": "",
+	"devDependencies": {
+		"dayjs": "^1.11.20",
+		"markdown-it": "^14.0.0",
+		"@11ty/eleventy": "^3.0.0",
+		"@11ty/eleventy-plugin-rss": "^2.0.2",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+	},
+	"dependencies": {}
+}

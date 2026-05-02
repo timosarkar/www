@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf-8">
+<meta name=referrer content=origin>
+<meta name=viewport content="width=device-width,initial-scale=1">
+
+<style>
+	:root {
+	--bg: #fff;
+	--fg: #333;
+	--a: #0043c2;
+	--a-h: #000;
+	--b: #666;
+}
+
+*{padding:0;margin:0;}
+body{font-family:sans-serif;font-size: 20px; background: var(--bg); color: var(--fg)}
+a{text-decoration:none;color:var(--a);}
+a:hover{text-decoration:underline;color:var(--a-h);}
+
+header{font-size: 85%; list-style:none; display: flex; justify-content: right;}
+header a{display: inline-block; padding: 10px 20px}
+
+main{margin: 5px auto;padding: 10px 0 0 20px;max-width: 760px}
+main > a {display: flex; padding: 7px 10px; line-height: 28px;}
+b {font-weight: normal;font-size: 18px;color: var(--b);margin-left: auto;white-space: nowrap}
+
+@media screen and (max-width: 800px) {
+	main{margin-right: 10px}
+	ul a{padding: 10px}
+	div.s{margin: 10px 0}
+	main > a{flex-direction:column}
+	b {margin-left: 0}
+}
+</style>
+<header><a href=//github.com/timosarkar>git</a><a href=/about>about</a><a href=mailto:sartimo10@gmail.com>contact</a></header>
+<main>
+{%- set posts = all_posts(collections.all) -%}
+{%- for post in posts %}
+{%- if post.type == 'blog' or post.type == 'long' %}
+<a href={{ post.url }}>{{ post.title }}<b>{{ post.date | post_date }}</b></a>
+{%- endif -%}
+{%- endfor -%}
+</main>
+
