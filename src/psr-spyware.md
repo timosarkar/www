@@ -90,3 +90,6 @@ run_simple("0.0.0.0",6969,app,use_reloader=False)
 
 The server will listen on incoming requests from implants, decode the base64 body and then finally reassemble the chunks into one main file. The final file will then be decompressed so we can look at the original .MHT File.
 
+Here is a sample Report:
+
+![report](https://b3034685.smushcdn.com/3034685/wp-content/uploads/PSR-NoScreenshotsSaved.jpg)
